@@ -8,10 +8,6 @@ function App() {
     getAllStudents().then((res) => res.json().then((s) => setStudents(s)));
   }, []);
 
-  if (!students) {
-    return <h1>Page is loading. Please wait!</h1>;
-  }
-
   if (students && students.length) {
     const columns = [
       {
