@@ -1,6 +1,6 @@
+import { Avatar, Table } from "antd";
 import { useEffect, useState } from "react";
 import { getAllStudents } from "./client";
-import { Table } from "antd";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -14,6 +14,17 @@ function App() {
 
   if (students && students.length) {
     const columns = [
+      {
+        title: "Avatar",
+        key: "avatar",
+        render: (text, student) => (
+          <Avatar size="large" style={{ backgroundColor: "#f56a00" }}>
+            {`${student.firstName.charAt(0).toUpperCase()}${student.lastName
+              .charAt(0)
+              .toUpperCase()}`}
+          </Avatar>
+        ),
+      },
       { title: "Student Id", dataIndex: "studentId", key: "studentId" },
       {
         title: "First Name",
