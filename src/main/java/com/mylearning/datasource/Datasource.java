@@ -2,6 +2,7 @@ package com.mylearning.datasource;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -16,6 +17,7 @@ import com.zaxxer.hikari.HikariDataSource;
  */
 @Configuration
 public class Datasource {
+    @Bean
     @ConfigurationProperties("app.datasource") // 这里的app.datasource就是指的是application.yaml文件中的app - datasource属性
     public HikariDataSource hikariDataSource() {
         return DataSourceBuilder.create().type(HikariDataSource.class).build();
