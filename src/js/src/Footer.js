@@ -4,7 +4,8 @@ import "./Footer.css";
 
 const Footer = (props) => (
         <div className="footer">
-            {props.numberOfStudents ? <Avatar size="large">{props.numberOfStudents}</Avatar> : null}
+            {props.numberOfStudents ? <Avatar style={{backgroundColor: "#f56a00", marginRight: "5px"}}
+                                              size="large">{props.numberOfStudents}</Avatar> : null}
             <Button type="primary">Add new student + </Button>
         </div>
 );
