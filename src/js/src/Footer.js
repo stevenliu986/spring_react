@@ -1,12 +1,18 @@
-import React from 'react'
+import React from "react";
 import {Avatar, Button} from "antd";
 import "./Footer.css";
 
-const Footer = (props) => (
+const Footer = ({openModal, numberOfStudents}) => (
         <div className="footer">
-            {props.numberOfStudents ? <Avatar style={{backgroundColor: "#f56a00", marginRight: "5px"}}
-                                              size="large">{props.numberOfStudents}</Avatar> : null}
-            <Button type="primary">Add new student + </Button>
+            {numberOfStudents ? (
+                    <Avatar
+                            style={{backgroundColor: "#f56a00", marginRight: "5px"}}
+                            size="large"
+                    >
+                        {numberOfStudents}
+                    </Avatar>
+            ) : null}
+            <Button type="primary" onClick={openModal}>Add new student +</Button>
         </div>
 );
 export default Footer;

@@ -1,13 +1,29 @@
-import {Avatar, Table} from "antd";
+import {Avatar, Table, Modal} from "antd";
 import {useEffect, useState} from "react";
 import {getAllStudents} from "./client";
 import Footer from "./Footer";
 
 function App() {
     const [students, setStudents] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     useEffect(() => {
         getAllStudents().then((res) => res.json().then((s) => setStudents(s)));
     }, []);
+
+    // const openModalClick = () =>{
+    //     alert("button has been clicked!")
+    // }
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    }
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    }
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    }
 
     if (students && students.length) {
         const columns = [
@@ -52,7 +68,8 @@ function App() {
                             rowKey="studentId"
                             pagination={false}
                     />
-                    <Footer numberOfStudents={students.length}/>
+                    <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}/>
+                    <Footer openModal={showModal} numberOfStudents={students.length}/>
                 </>
         )
     }
