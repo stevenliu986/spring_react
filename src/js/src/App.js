@@ -2,6 +2,7 @@ import {Avatar, Table, Modal} from "antd";
 import {useEffect, useState} from "react";
 import {getAllStudents} from "./client";
 import Footer from "./Footer";
+import AddStudentForm from "./forms/AddStudentForm";
 
 function App() {
     const [students, setStudents] = useState([]);
@@ -9,10 +10,6 @@ function App() {
     useEffect(() => {
         getAllStudents().then((res) => res.json().then((s) => setStudents(s)));
     }, []);
-
-    // const openModalClick = () =>{
-    //     alert("button has been clicked!")
-    // }
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -68,7 +65,9 @@ function App() {
                             rowKey="studentId"
                             pagination={false}
                     />
-                    <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}/>
+                    <Modal title="Add Student" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                        <AddStudentForm />
+                    </Modal>
                     <Footer openModal={showModal} numberOfStudents={students.length}/>
                 </>
         )
