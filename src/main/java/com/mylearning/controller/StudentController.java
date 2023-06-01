@@ -20,7 +20,7 @@ import java.util.List;
  * @Version: v1.0
  */
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3000") // spring的跨域注解，添加前端的URL和端口号
 @RequestMapping("/students")
 public class StudentController {
 
