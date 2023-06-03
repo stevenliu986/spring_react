@@ -15,6 +15,10 @@ function App() {
         setIsModalOpen(true);
     }
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
+
     const handleOk = () => {
         setIsModalOpen(false);
     }
@@ -22,7 +26,7 @@ function App() {
         setIsModalOpen(false);
     }
 
-    if (students && students.length) {
+    if (students?.length) {
         const columns = [
             {
                 title: "Avatar",
@@ -66,7 +70,7 @@ function App() {
                             pagination={false}
                     />
                     <Modal title="Add Student" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                        <AddStudentForm />
+                        <AddStudentForm onSuccess={closeModal}/>
                     </Modal>
                     <Footer openModal={showModal} numberOfStudents={students.length}/>
                 </>
