@@ -1,11 +1,12 @@
 import React from 'react';
 import {Formik} from "formik";
 import {Input, Button, Tag} from "antd";
+import {addNewStudent} from "../client";
 
 const inputMargin = {marginBottom: "5px"};
 const tagStyle = {backgroundColor: "#f50", color: "white", ...inputMargin};
 
-const AddStudentForm = () => {
+const AddStudentForm = ({onSuccess}) => {
     return (
             <Formik
                     initialValues={{firstName: '', lastName: '', email: '', gender: ''}}
@@ -31,11 +32,11 @@ const AddStudentForm = () => {
                         }
                         return errors;
                     }}
-                    onSubmit={(values, {setSubmitting}) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
+                    onSubmit={(student, {setSubmitting}) => {
+                        addNewStudent(student).then(() => {
+                            onSuccess();
                             setSubmitting(false);
-                        }, 400);
+                        });
                     }}
             >
                 {({
