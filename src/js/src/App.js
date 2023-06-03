@@ -9,7 +9,7 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     useEffect(() => {
         getAllStudents().then((res) => res.json().then((s) => setStudents(s)));
-    }, []);
+    }, [students]);
 
     const showModal = () => {
         setIsModalOpen(true);
