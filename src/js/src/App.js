@@ -1,4 +1,4 @@
-import {Avatar, Table, Modal} from "antd";
+import {Avatar, Table, Modal, Empty} from "antd";
 import {useEffect, useState} from "react";
 import {getAllStudents} from "./client";
 import Footer from "./Footer";
@@ -9,7 +9,7 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     useEffect(() => {
         getAllStudents().then((res) => res.json().then((s) => setStudents(s)));
-    }, [students]);
+    }, []);
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -78,7 +78,11 @@ function App() {
     }
 
     // 如果没有取到数据，则显示下面的文字
-    return <h1>No Students Found!</h1>;
+    return (<Empty description={
+        <h1>No Students Found!</h1>
+    }/>)
+
+            ;
 }
 
 export default App;
