@@ -31,6 +31,7 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getAllStudents() {
+        // throw new IllegalStateException("Oops can't get all students.");
         return studentService.getAllStudents();
     }
 
