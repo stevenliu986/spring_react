@@ -13,10 +13,10 @@ const AddStudentForm = ({onSuccess}) => {
                     validate={values => {
                         const errors = {};
                         if (!values.firstName) {
-                            errors.firstName = "First Name Required"
+                            errors.firstName = "First Name Required";
                         }
                         if (!values.lastName) {
-                            errors.lastName = "Last Name Required"
+                            errors.lastName = "Last Name Required";
                         }
                         if (!values.email) {
                             errors.email = 'Required';
@@ -26,9 +26,9 @@ const AddStudentForm = ({onSuccess}) => {
                             errors.email = 'Invalid email address';
                         }
                         if (!values.gender) {
-                            errors.gender = "Gender Required"
+                            errors.gender = "Gender Required";
                         } else if (!['FEMALE', 'MALE', 'female', 'male'].includes(values.gender)) {
-                            errors.gender = "Gender must be (MALE, male, FEMALE, female)"
+                            errors.gender = "Gender must be (MALE, male, FEMALE, female)";
                         }
                         return errors;
                     }}
