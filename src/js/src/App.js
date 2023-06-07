@@ -78,11 +78,16 @@ function App() {
     }
 
     // 如果没有取到数据，则显示下面的文字
-    return (<Empty description={
-        <h1>No Students Found!</h1>
-    }/>)
-
-            ;
+    return (
+            <>
+                <Empty description={
+                    <h1>No Students Found!</h1>
+                }/>
+                <Modal title="Add Student" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                    <AddStudentForm onSuccess={closeModal}/>
+                </Modal>
+                <Footer openModal={showModal} numberOfStudents={students.length}/></>
+    );
 }
 
 export default App;

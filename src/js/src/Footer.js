@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = ({openModal, numberOfStudents}) => (
         <div className="footer">
-            {numberOfStudents ? (
+            {numberOfStudents !== undefined ? (
                     <Avatar
                             style={{backgroundColor: "#f56a00", marginRight: "5px"}}
                             size="large"
