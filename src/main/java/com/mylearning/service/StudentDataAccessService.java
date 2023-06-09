@@ -48,7 +48,9 @@ public class StudentDataAccessService {
     }
 
     int insertStudent(UUID studentId, Student student) {
-        String sql = "INSERT INTO student" + "( student_id, first_name, last_name, email, gender) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO student" + "( student_id, first_name, last_name, " +
+                "email, gender) VALUES (?, ?, ?, ?, ?::gender)"; // 由于把DB中的gender
+        // 字段修改为type类型，所以这里需要把字符串cast为type类型
         return jdbcTemplate.update(sql, studentId, student.getFirstName(), student.getLastName(), student.getEmail(), student.getGender().name().toUpperCase());
     }
 }
