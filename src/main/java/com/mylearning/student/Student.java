@@ -1,6 +1,9 @@
 package com.mylearning.student;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.lang.NonNull;
 
 import java.util.UUID;
 
@@ -15,9 +18,13 @@ import java.util.UUID;
  */
 public class Student {
     private final UUID studentId;
+    @NotBlank
     private final String firstName;
+    @NotBlank
     private final String lastName;
+    @Email
     private final String email;
+    @NonNull
     private final Gender gender;
 
     public enum Gender {
