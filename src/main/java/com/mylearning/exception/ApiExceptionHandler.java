@@ -23,7 +23,7 @@ public class ApiExceptionHandler {
     public ResponseEntity<Object> handleApiRequestException(ApiRequestException e) {
 
         ApiException apiException = new ApiException(
-                e.getMessage(), e, HttpStatus.BAD_REQUEST, ZonedDateTime.now(ZoneId.of("Z"))
+                e.getMessage(), HttpStatus.BAD_REQUEST, ZonedDateTime.now(ZoneId.of("Z"))
         );
 
         return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
