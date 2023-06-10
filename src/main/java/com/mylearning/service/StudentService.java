@@ -1,6 +1,7 @@
 package com.mylearning.service;
 
 import com.mylearning.entity.Student;
+import com.mylearning.entity.StudentCourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,10 @@ public class StudentService {
         // TODO: verify that email is not taken
 
         studentDataAccessService.insertStudent(newStudentId, student);
+    }
+
+    public List<StudentCourse> getAllCoursesOfStudent(UUID studentId) {
+        return studentDataAccessService.selectAllCoursesOfStudent(studentId);
     }
 
     public void addNewStudent(Student student) {
