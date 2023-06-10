@@ -1,6 +1,6 @@
 package com.mylearning.service;
 
-import com.mylearning.student.Student;
+import com.mylearning.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

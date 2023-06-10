@@ -1,7 +1,7 @@
 package com.mylearning.controller;
 
 import com.mylearning.service.StudentService;
-import com.mylearning.student.Student;
+import com.mylearning.entity.Student;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
