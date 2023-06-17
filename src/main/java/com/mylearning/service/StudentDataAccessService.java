@@ -59,11 +59,18 @@ public class StudentDataAccessService {
     }
 
     List<StudentCourse> selectAllCoursesOfStudent(UUID studentId) {
-        String sql = "select" + " student.student_id, course.course_id, course.name, course" +
-                ".description, course.department, course.teacher_name, student_course.start_date," +
-                " student_course.end_date, student_course.grade" + "from student join " +
-                "student_course using (student_id) join course using (course_id) where student" +
-                ".student_id = ?";
+        // String sql = "select" + " student.student_id, course.course_id, course.name, course" +
+        //         ".description, course.department, course.teacher_name, student_course.start_date," +
+        //         " student_course.end_date, student_course.grade" + "from student join " +
+        //         "student_course using (student_id) join course using (course_id) where student" +
+        //         ".student_id = ?";
+
+        // TODO: 使用上面的语句会报错，而用*来进行查询的话，没有问题，这个问题待解决
+        String sql = "select * from" +
+                " student join student_course using (student_id) join course " +
+                "using\n" +
+                "    (course_id) where student.student_id = ?";
+
         return jdbcTemplate.query(sql, new Object[]{studentId}, mapStudentCourseFromDb());
     }
 
