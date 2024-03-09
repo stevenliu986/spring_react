@@ -13,7 +13,7 @@ const checkStatus = response => {
     }
 }
 
-export const getAllStudents = () => fetch("http://localhost:8080/api/students").then(checkStatus);
+export const getAllStudents =() =>  fetch("http://localhost:8080/api/students").then(checkStatus);
 export const addNewStudent = student => fetch("http://localhost:8080/api/students", {
     headers: {"Content-Type": "application/json"},
     method: "POST",
